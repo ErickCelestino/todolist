@@ -1,0 +1,96 @@
+main {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    margin: 40px auto;
+    box-shadow: var(--shadown);
+}
+
+.add-form {
+    display: flex;
+    margin-bottom: 50px;
+    gap: 15px;
+    width: 100%;
+}
+
+.input-task {
+    width: 100%;
+    flex: 1;
+    padding: 15px;
+    border: var(--border);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: var(--shadown);
+}
+
+.button-task {
+    background-color: var(--background-color);
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+.table-task {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-task td,th {
+    padding: 10px 15px;
+    border: var(--border);
+    text-align: center;
+}
+
+.table-task td {
+    color: #333;
+    font-weight: 600;
+}
+
+.table-task tr:nth-child(even){
+  background-color: #f5f5f5;
+}
+
+.table-task select {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #ebebeb;
+    cursor: pointer;
+}
+
+.table-task select:hover {
+    background-color: var(--beige);
+}
+
+.btn-action {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-action:nth-child(1){
+    background-color: orange;
+    margin-right: 5px;
+}
+
+.btn-action:nth-child(2){
+    background-color: rgba(137, 42, 42, 0.9);
+}
