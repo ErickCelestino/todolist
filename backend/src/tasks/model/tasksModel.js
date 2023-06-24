@@ -1,6 +1,6 @@
 const connection = require('../../database/connection');
 
-const getAll = async () => {
+const findAll = async () => {
     const [tasks] = await connection.execute('SELECT * FROM tasks');
     return tasks;
 };
@@ -16,12 +16,29 @@ const createTask = async (task) => {
 };
 
 const deleteTask = async (id) => {
-    const removeTask = await connection.execute('DELETE FROM tasks WHERE id = ?', [id]);
+    const [removeTask] = await connection.execute('DELETE FROM tasks WHERE id = ?', [id]);
     return removeTask;
 };
 
+const updateTask = async (id, task) => {
+    const { title, status } = task;
+
+    const query = 'UPDATE tasks SET title = ?, status = ? WHERE id = ?';
+    
+    const [updateTask] = await connection.execute(query, [title, status,id]);
+    return updateTask;
+};
+
+const findById = async (id) => {
+
+    const [findById] = await connection.execute('SELECT * from tasks WHERE id = ?',[id]);
+    return findById;
+};
+
 module.exports = {
-    getAll,
+    findAll,
     createTask,
-    deleteTask
+    deleteTask,
+    updateTask,
+    findById
 };

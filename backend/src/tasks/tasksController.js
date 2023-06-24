@@ -1,7 +1,7 @@
 const tasksService = require('./tasksService');
 
-const getAll = async (_req,res) => {
-    const tasks = await tasksService.getAll();
+const findAll = async (_req,res) => {
+    const tasks = await tasksService.findAll();
     const result = res.status(200).json(tasks);
     
     return result; 
@@ -15,14 +15,24 @@ const createTask =  async (req,res) => {
 };
 
 const deleteTask = async(req,res) => {
-    const deleteTask = await tasksService.deleteTask(req.params.id);
-    const result = res.status(204).json(deleteTask);
-    
-    return result;
+    await tasksService.deleteTask(req.params.id);
+    res.status(204).json(); 
+};
+
+const updateTask =  async(req,res) => {
+    const updateTask = await tasksService.updateTask(req.params.id, req.body);
+    return res.status(200).json(updateTask);
+};
+
+const findById = async(req,res) =>{
+    const task = await tasksService.findById(req.params.id);
+    return res.status(200).json(task);
 };
 
 module.exports = {
-    getAll,
+    findAll,
     createTask,
-    deleteTask
+    deleteTask,
+    updateTask,
+    findById
 };

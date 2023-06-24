@@ -1,7 +1,7 @@
 const tasksModel = require('./model/tasksModel');
 
-const getAll = async() => {
-    const tasks = await tasksModel.getAll();
+const findAll = async() => {
+    const tasks = await tasksModel.findAll();
     return tasks;
    
 };
@@ -16,8 +16,20 @@ const deleteTask = async (id) => {
     return deleteTask;
 };
 
+const updateTask = async (id, body) => {
+    const updateTask = await tasksModel.updateTask(id,body);
+    return updateTask;
+};
+
+const findById = async (id) => {
+    const findTaskById = await tasksModel.findById(id);
+    return findTaskById;
+};
+
 module.exports = {
-    getAll,
+    findAll,
     createTask,
-    deleteTask
+    deleteTask,
+    updateTask,
+    findById
 };

@@ -1,7 +1,12 @@
-const titleEmpty = 'Title cannot be empty';
-const titleIsRequired = 'The field "title" is required!';
+const elementEmpty = (element) => {
+    return `${element} cannot be empty`;
+};
+const elementIsRequired = (element) => {
+    return `The field "${element}" is required!`;
+};
+
 
 module.exports = {
-    titleEmpty,
-    titleIsRequired,
+    elementEmpty,
+    elementIsRequired,
 };
