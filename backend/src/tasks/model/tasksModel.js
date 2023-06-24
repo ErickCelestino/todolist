@@ -15,7 +15,13 @@ const createTask = async (task) => {
     return {insertId: createTask.insertId};
 };
 
+const deleteTask = async (id) => {
+    const removeTask = await connection.execute('DELETE FROM tasks WHERE id = ?', [id]);
+    return removeTask;
+};
+
 module.exports = {
     getAll,
-    createTask
+    createTask,
+    deleteTask
 };
